@@ -61,7 +61,39 @@ class ListaDoble:
 
 
 #insert
-##    def insert(self,valor,pos):
+    def insert(self,value,pos):
+        if isinstance(value,int) and isinstance(pos,int):
+            if pos > self.length:
+                return "Index out of range"
+            elif self.head == None: #lista vacia
+                self.head = Nodo(valor=value)
+                self.tail = self.head
+            elif pos == 0:
+                new = Nodo(valor=value)
+                temp = self.head
+                self.head = new
+                temp.prev = new
+                new.next = temp
+            else:
+                temp = self.head
+                for i in range(pos-1):
+                    temp = temp.next
+                new = Nodo(valor=value)
+                new.prev = temp
+                new.next = temp.next
+                temp.next = new
+                if new.next == None:
+                    self.tail = new
+                else:
+                    new.next.prev = new
+                self.length += 1
+            self.printL()
+        else:
+            return "Error"
+                    
+                
+                
+            
         
 
         
@@ -90,6 +122,8 @@ class ListaDoble:
                 if check == False:
                     return "Elemento no en la lista"
             return self.printL()
+        else:
+            return "Error"
 
 
 #dela
