@@ -100,7 +100,7 @@ class ListaDoble:
                 while nodo.next != None: #elimina los demas
                     if nodo.next.__str__() == valor:            
                         nodo.prev = nodo
-                        nodo.next = nodo.next.next #se salta al nodo.next que seria el que va a ser eliminado
+                        nodo.next = nodo.next.next #se salta nodo.next (eliminado)
                         check = True
                         break
                     else:
