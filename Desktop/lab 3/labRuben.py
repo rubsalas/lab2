@@ -14,13 +14,13 @@ class Nodo:
     def __str__(self):
         return self.valor
 
+
 #ListaDoble       
 class ListaDoble:
     def __init__(self):
         self.head = None
         self.tail = None
         self.length = 0
-
 
 #printL
     def printL(self):
@@ -32,7 +32,6 @@ class ListaDoble:
                 nodo = nodo.next
         print(lista_final)
 
-
 #rPrintL
     def rPrintL(self):
         nodo = self.tail
@@ -43,7 +42,6 @@ class ListaDoble:
                 nodo = nodo.prev
         print(lista_final)
         
-
 #appe
     def appe(self, value):
         self.length += 1
@@ -57,13 +55,10 @@ class ListaDoble:
             nodo.prev = temp
             self.tail = nodo
 
-
-
-
 #insert
     def insert(self,value,pos):
         if isinstance(value,int) and isinstance(pos,int):
-            if pos > self.length:
+            if pos > self.length + 1:
                 return "Index out of range"
             elif self.head == None: #lista vacia
                 self.head = Nodo(valor=value)
@@ -90,13 +85,7 @@ class ListaDoble:
             self.printL()
         else:
             return "Error"
-                    
-                
-                
-            
-        
-
-        
+                            
 #del
     def dl(self,valor):
         if isinstance(valor,int):
@@ -132,24 +121,3 @@ class ListaDoble:
                 
                 
         
-
-
-
-
-    
-#lista predefinida
-l = ListaDoble()
-
-l.appe(1)
-l.appe(3)
-l.appe(6)
-l.appe(9)
-l.appe(12)
-l.appe(15)
-l.appe(18)
-
-l.printL()
-
-print("Head:", l.head.__str__())
-
-print("Tail:", l.tail.__str__())
