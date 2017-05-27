@@ -1,3 +1,10 @@
+#lab2 lista doble i2017 Código
+#26/05/17
+
+
+
+
+#Nodo
 class Nodo:
     def __init__(self, next = None, prev = None, valor = None):
         self.next = next
@@ -6,7 +13,8 @@ class Nodo:
 
     def __str__(self):
         return self.valor
-        
+
+#ListaDoble       
 class ListaDoble:
     def __init__(self):
         self.head = None
@@ -48,7 +56,6 @@ class ListaDoble:
             temp.next = nodo
             nodo.prev = temp
             self.tail = nodo
-##        self.printL()
 
 
 
@@ -62,66 +69,27 @@ class ListaDoble:
     def dl(self,valor):
         if isinstance(valor,int):
             nodo = self.head
+            check = False
             if self.head.__str__() == valor: #inicio es eliminado
                 self.head = None
                 self.head = nodo.next
                 self.length -= 1
-                return self.printL() #3
-                
-##            elif self.tail.__str__() == valor: #final es eliminado
-##                self.tail = None
-##                count = 0
-##                temp = self.head
-##                while count != self.length - 2:
-##                    count += 1
-##                    temp = temp.next
-##                self.tail = temp
-##                self.length -= 1
-##                return self.printL()
-
+                return self.printL()
             else:
-                while nodo.next != None:
+                while nodo.next != None: #elimina los demas
                     if nodo.next.__str__() == valor:            
                         nodo.prev = nodo
                         nodo.next = nodo.next.next #se salta al nodo.next que seria el que va a ser eliminado
+                        check = True
                         break
                     else:
                         nodo.prev = nodo
                         nodo = nodo.next
                 self.tail = nodo
                 self.length -= 1
-##                if 
+                if check == False:
+                    return "Elemento no en la lista"
             return self.printL()
-
-
-
-
-
-#################################
-    def delete(self,valor):
-        nodo = self.head #head
-        var = False
-        if nodo == None:
-            return "Lista vacia"
-        elif self.head.__str__() == valor: #head.valor
-            self.head = None
-            self.head = nodo.next
-            self.length -= 1
-        else:
-            while nodo.next != None:
-                if valor == nodo.next.__str__(): 
-                    nodo.prev = nodo
-                    nodo.next = nodo.next.next #se salta al nodo.next que seria el que va a ser eliminado
-                    var = True
-                    break
-                else:
-                    nodo.prev = nodo
-                    nodo = nodo.next
-            self.tail = nodo
-            if var == False:
-                return "Elemento no en la lista"
-        self.printL()
-################################
 
 
 #dela
